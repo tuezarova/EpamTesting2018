@@ -2,10 +2,9 @@ package com.spbstu.EpamLab2;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import static org.aeonbits.owner.ConfigFactory.create;
 
@@ -13,43 +12,47 @@ public class TestLab2 {
 
     private WebDriver driver;
     TestConfig cfg;
+    public static HomePage homePage;
 
+
+    public static void initHP(WebDriver driver) {
+        homePage = PageFactory.initElements(driver, HomePage.class);
+    }
 
     @BeforeSuite
     public void beforeSuite() {
         cfg = create(TestConfig.class);
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        TestWebsite.initHP(this.driver);
+        initHP(this.driver);
     }
 
-
-
-    @AfterTest
-    public void after() {
-        TestWebsite.homePage.driver.close();
-    }
 
     @Test
     public void Lab2() {
-        //driver.navigate().to(cfg.homepage());
-        TestWebsite.homePage.open(cfg);
-        TestWebsite.homePage.getUrl();
-        Assert.assertEquals(TestWebsite.homePage.getUrl(), PAGE_DATA.SITE.str);
-        Assert.assertEquals(TestWebsite.homePage.getTitle(), PAGE_DATA.TITLE.str);
-        Assert.assertTrue(TestWebsite.homePage.isLoggedIn(PAGE_DATA.LOGIN.str, PAGE_DATA.PASSWORD.str));
 
-        Assert.assertEquals(TestWebsite.homePage.getUsername(), PAGE_DATA.USER_NAME.str);
-        Assert.assertEquals(TestWebsite.homePage.getTitle(), PAGE_DATA.TITLE.str);
+        homePage.open(cfg);
+        homePage.getUrl();
 
-       // Assert.assertEquals(TestWebsite.homePage.getIconsNumber(), PAGE_DATA.ACTUAL_ICONS_NUMBERS.i);
+        Assert.assertEquals(homePage.getUrl(), PAGE_CONSTANTS.SITE.str);
+        Assert.assertEquals(homePage.getTitle(), PAGE_CONSTANTS.TITLE.str);
+        Assert.assertTrue(homePage.isLoggedIn(PAGE_CONSTANTS.LOGIN.str, PAGE_CONSTANTS.PASSWORD.str));
+        Assert.assertEquals(homePage.getUsername(), PAGE_CONSTANTS.USER_NAME.str);
+        Assert.assertEquals(homePage.getTitle(), PAGE_CONSTANTS.TITLE.str);
 
-        Assert.assertEquals(java.util.Optional.ofNullable(TestWebsite.homePage.getIconsNumber()), java.util.Optional.ofNullable(PAGE_DATA.ACTUAL_ICONS_NUMBERS.i));
-        for (int i = 0; i < PAGE_DATA.ACTUAL_ICONS_NUMBERS.i; i++) {
-            Assert.assertEquals(TestWebsite.homePage.getPictureText(i), PAGE_DATA.TEXT.strAr[i]);
+
+        Assert.assertEquals(java.util.Optional.ofNullable(homePage.getIconsNumber()),
+                java.util.Optional.ofNullable(PAGE_CONSTANTS.ICONS_NUMBERS.i));
+        for (int i = 0; i < PAGE_CONSTANTS.ICONS_NUMBERS.i; i++) {
+            Assert.assertEquals(homePage.getPictureText(i), PAGE_CONSTANTS.TEXT.strArr[i]);
         }
 
-        Assert.assertEquals(TestWebsite.homePage.getMainTitle(), PAGE_DATA.MAIN_HEADER.str);
-        Assert.assertEquals(TestWebsite.homePage.getMainText(), PAGE_DATA.HOME_PAGE.str); 
+        Assert.assertEquals(homePage.getMainTitle(), PAGE_CONSTANTS.MAIN_HEADER.str);
+        Assert.assertEquals(homePage.getMainText(), PAGE_CONSTANTS.HOME_PAGE.str);
+    }
+
+    @AfterSuite
+    public void afterSuite() {
+        homePage.driver.close();
     }
 }

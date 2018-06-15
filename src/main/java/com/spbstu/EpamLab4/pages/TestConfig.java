@@ -1,4 +1,4 @@
-package com.spbstu.EpamLab4.utilities;
+package com.spbstu.EpamLab4.pages;
 
 import org.aeonbits.owner.Config;
 

@@ -4,7 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.spbstu.EpamLab4.utilities.TestConfig;
+import com.spbstu.EpamLab4.pages.TestConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.support.FindBy;
 

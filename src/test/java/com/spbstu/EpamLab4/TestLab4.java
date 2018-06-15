@@ -2,7 +2,7 @@ package com.spbstu.EpamLab4;
 
 import com.spbstu.EpamLab4.enums.PAGE_CONSTANTS;
 
-import com.spbstu.EpamLab4.utilities.TestConfig;
+import com.spbstu.EpamLab4.pages.TestConfig;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;

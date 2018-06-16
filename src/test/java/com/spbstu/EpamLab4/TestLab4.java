@@ -32,12 +32,13 @@ public class TestLab4 {
         com.codeborne.selenide.Configuration.timeout = 6000;
         com.codeborne.selenide.Configuration.browser = "chrome";
         TestLab4.init();
+        homePageSelenide.open();
     }
 
     @Test
     @Step("Test_case_1")
     public void Lab4Task1() {
-        homePageSelenide.open();
+       // homePageSelenide.open();
         com.codeborne.selenide.Selenide.zoom(0.5);
         homePageSelenide.checkLoggedIn(PAGE_CONSTANTS.LOGIN.str, PAGE_CONSTANTS.PASSWORD.str);
         homePageSelenide.checkUserName(PAGE_CONSTANTS.USER_NAME.str);

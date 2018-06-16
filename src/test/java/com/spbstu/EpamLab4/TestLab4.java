@@ -56,9 +56,22 @@ public class TestLab4 {
         differentElementsPages.selectBoxElements(CHECK_BOXES.strAr[0]);
         differentElementsPages.selectBoxElements(CHECK_BOXES.strAr[2]);
         differentElementsPages.checkSelectedElements(SELECT_ELEMENTS.strAr);
+        homePageSelenide.serviceHeader.click();
+        differentElementsPages.datesPageButton.click();
+        differentElementsPages.sliders.get(0).scrollTo();
+
+        System.out.println(differentElementsPages.sliderLength.getSize().width);
+
+        differentElementsPages.checkSlidePositions(0, 100);
+
+        differentElementsPages.checkSlidePositions(0, 0);
+
+        differentElementsPages.checkSlidePositions(100, 100);
+
+        differentElementsPages.checkSlidePositions(30, 70);
     }
 
-    @Test
+    /*@Test
     @Step("Test_case_2")
     public void Lab4Task2() {
         homePageSelenide.open();
@@ -79,5 +92,5 @@ public class TestLab4 {
 
         differentElementsPages.checkSlidePositions(30, 70);
 
-    }
+    }*/
 }

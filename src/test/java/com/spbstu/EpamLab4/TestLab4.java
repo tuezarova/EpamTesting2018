@@ -25,6 +25,7 @@ public class TestLab4 {
     public static void init(){
         homePageSelenide = new HomePageSelenide();
         differentElementsPages = new DifferentElementsPages();
+        homePageSelenide.open();
     }
     @BeforeSuite
     public void beforeSuite() {
@@ -32,7 +33,7 @@ public class TestLab4 {
         com.codeborne.selenide.Configuration.timeout = 6000;
         com.codeborne.selenide.Configuration.browser = "chrome";
         TestLab4.init();
-        homePageSelenide.open();
+
     }
 
     @Test

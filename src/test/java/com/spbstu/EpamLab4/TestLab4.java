@@ -33,6 +33,7 @@ public class TestLab4 {
         com.codeborne.selenide.Configuration.timeout = 6000;
         com.codeborne.selenide.Configuration.browser = "chrome";
         TestLab4.init();
+        homePageSelenide = new HomePageSelenide();
         homePageSelenide.open();
 
     }

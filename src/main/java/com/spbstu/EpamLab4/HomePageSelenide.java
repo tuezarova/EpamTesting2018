@@ -48,7 +48,7 @@ public class HomePageSelenide {
     }
 
     public static void open() {
-        Selenide.open(ConfigFactory.create(TestConfig.class).homepage());
+        Selenide.open("https://jdi-framework.github.io/tests/index.htm");
     }
 
     public String getTitle() {

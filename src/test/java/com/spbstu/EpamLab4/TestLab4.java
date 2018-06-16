@@ -34,14 +34,14 @@ public class TestLab4 {
         com.codeborne.selenide.Configuration.browser = "chrome";
         TestLab4.init();
         homePageSelenide = new HomePageSelenide();
-        homePageSelenide.open();
+
 
     }
 
     @Test
     @Step("Test_case_1")
     public void Lab4Task1() {
-
+        homePageSelenide.open();
         com.codeborne.selenide.Selenide.zoom(0.5);
         homePageSelenide.checkLoggedIn(PAGE_CONSTANTS.LOGIN.str, PAGE_CONSTANTS.PASSWORD.str);
         homePageSelenide.checkUserName(PAGE_CONSTANTS.USER_NAME.str);
@@ -78,7 +78,7 @@ public class TestLab4 {
     @Test
     @Step("Test_case_2")
     public void Lab4Task2() {
-        //homePageSelenide.open();
+        homePageSelenide.open();
         homePageSelenide.checkLoggedIn(PAGE_CONSTANTS.LOGIN.str, PAGE_CONSTANTS.PASSWORD.str);
         homePageSelenide.checkUserName(PAGE_CONSTANTS.USER_NAME.str);
 

@@ -6,7 +6,7 @@
             <class name="com.spbstu.EpamLab4.TestLab4">
                 <methods>
                     <include name="Lab4Task1"/>
-
+                    <include name="Lab4Task2"/>
                 </methods>
             </class>
         </classes>

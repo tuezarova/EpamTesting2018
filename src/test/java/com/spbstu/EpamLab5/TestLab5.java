@@ -5,7 +5,6 @@ import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
 import com.spbstu.EpamLab5.data.MetalsAndColorsDataSet;
 import com.spbstu.EpamLab5.data.PAGE_CONSTANTS;
 import com.spbstu.EpamLab5.pages.TestWebsiteSelenide;
-import com.spbstu.EpamLab5.pages.TestConfig;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
